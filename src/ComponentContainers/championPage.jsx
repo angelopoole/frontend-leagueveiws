@@ -1,0 +1,3 @@
+// This will be the page that displays All champions!
+//fetch from datadragon!  ex: fetch('http://ddragon.leagueoflegends.com/cdn/10.1.1/data/en_US/champion.json') or fetch('http://ddragon.leagueoflegends.com/cdn/${Version Number}/data/en_US/champion.json')
+// fetch('http://ddragon.leagueoflegends.com/cdn/10.4.1/data/en_US/champion.json').then(r => r.json()).then(r => console.log('response:', r , 'data:', r.data.Aatrox)) <-- to see data
