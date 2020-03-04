@@ -22,7 +22,7 @@ handleLoginSubmit= userinfo => {
 
         return (
             <div className="page">
-                <Form handleLoginSubmit={this.handleLoginSubmit} login={true} />
+                <Form handleLoginSubmit={this.props.handleLoginSubmit} login={true} />
             </div>
         )
     }
