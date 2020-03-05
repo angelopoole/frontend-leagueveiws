@@ -22,17 +22,13 @@ export default class ChampionCard extends React.Component {
         })
         console.log(this.state.blurb)
     }
-
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleCardBlurbChange(this.props.champion, this.state.blurb)
     }
-
     addToUser = (characterId) => {
         console.log('here')
         this.props.creatingChampUserAssociation(characterId)
-
-
     }
 
 
@@ -48,7 +44,7 @@ export default class ChampionCard extends React.Component {
         return (
             <Card style={{background: '#dee1ec' }}>
             <div className='ChampionCard' >
-            <Button basic color='red' onClick={(e) => this.props.handleCardDelete(this.props.champion)} > Delete forever </Button>
+            <Button basic color='red' onClick={(e) => this.props.handleCardDelete ? this.props.handleCardDelete(this.props.champion) : alert("Working on that functionality") } > Delete forever </Button>
                 <Button basic color='green' onClick={(e) => this.addToUser(id)}> Add to profile </Button>
                 <form onSubmit={(e) => this.handleSubmit(e)} >
                     <Card.Header> {name}: {title}</Card.Header>
