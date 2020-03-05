@@ -114,9 +114,9 @@ render() {
                             <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
                         </svg>
                         <form className="form" onSubmit={this.handleSubmit} >
-                            <label for="username">username</label>
+                            <label>username</label>
                             <input name="username" type="username" autoComplete='off' onFocus={(e) => this.userNameFocusHandler(e)} onChange={this.handleChangeState} value={this.username} id="username" />
-                            <label for="password" >Password</label>
+                            <label>Password</label>
                             <input name="password" type="password" onFocus={(e) => this.passwordFocusHandler(e)} onChange={this.handleChangeState} value={this.password} id="password" />
                             <input type="submit" onFocus={(e) => this.submitFocusHandler(e)} id="submit" value="Submit" />
                         </form>

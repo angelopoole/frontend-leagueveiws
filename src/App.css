@@ -22,6 +22,7 @@ body {
   position: absolute;
   place-content: center;
   width: calc(100% - 40px);
+  z-index: -1;
 }
 @media (max-width: 767px) {
   .page {
@@ -129,4 +130,16 @@ input::-moz-focus-inner {
 }
 #submit:active {
   color: #d0d0d2;
+}
+.App-header {
+  background-color: transparent;
+  color: transparent;
+  height: fit-content;
+}
+.App-title {
+  font-size: 1.5em;
+}
+.App-logo {
+  animation: App-logo-spin alternate infinite 2s ease-in-out;
+  height: 80px;
 }

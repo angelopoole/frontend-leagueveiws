@@ -6,17 +6,9 @@ export default class RegisterPage extends React.Component {
 
 
 
-    renderProfile = routerProps => {
-        return 
-    }
-
-
-
-
-    
-
-
-
+    // renderProfile = routerProps => {
+    //     return 
+    // }
 
 
     render() {
