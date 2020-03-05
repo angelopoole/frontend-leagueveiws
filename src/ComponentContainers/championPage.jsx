@@ -18,19 +18,22 @@ class championPage extends Component {
 
     renderChampionCards = () => {
         let champions = this.props.allChampions
+        // console.log(champions)
         return champions.map(champion => {
+            // console.log(champion)
             return <ChampionCard
                 champion={champion}
                 key={champion.id}
                 handleCardDelete={this.props.handleCardDelete}
                 handleCardBlurbChange={this.props.handleCardBlurbChange}
+                creatingChampUserAssociation={this.props.creatingChampUserAssociation}
             />
         })
     }
 
 
     render() {
-        // console.log(this.props.allChampions)
+        console.log(this.props)
         return (
             <div>
                 {this.renderChampionCards()}

@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       allChampions: [],
       user: {
-        champions: [],
+        championlists: [],
         username: '',
         id: 0
       },
@@ -81,8 +81,8 @@ class App extends Component {
   }
 
   handleCardDelete = (idFromChild) => {
-    console.log("hello!")
-    console.log(idFromChild)
+    // console.log("hello!")
+    // console.log(idFromChild)
     // let hello = "hello" 
 
     fetch(`http://localhost:4000/champions`, {
@@ -96,7 +96,7 @@ class App extends Component {
 
   handleCardBlurbChange = (champion, blurbChange) => {
     // e.preventDefault()
-    console.log('hello')
+    // console.log('hello')
     // console.log(blurbChange)
     // console.log(champion)
     let championId = champion.id
@@ -106,9 +106,9 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({blurb: blurbChange})
+      body: JSON.stringify({ blurb: blurbChange })
     })
-    .then(this.state.allChampions.filter(champion => champion.id === championId ? champion.blurb = blurbChange : console.log('false')))
+      .then(this.state.allChampions.filter(champion => champion.id === championId ? champion.blurb = blurbChange : console.log('false')))
   }
 
   fetchLeagueChampData = () => {
@@ -120,13 +120,38 @@ class App extends Component {
         })
       }
       )
+  }
+
+  creatingChampUserAssociation = (champion) => {
+    // console.log("user token: ", this.state.token, "champion Id:", champion )
+
+    fetch(`http://localhost:4000/championlists`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${this.state.token}`
+      },
+      body: JSON.stringify({ champion_id: champion })
+    }).then(r => r.json())
+    .then(r => {
+      this.setState({
+        user:{
+          championlists: [...this.state.user.championlists, r]}
+      })
+
+
     }
-
-
-
+      // this.setState({
+      // user: {
+      //   championlists: [...[user: {championlists}], r]
+      // }})
+    // .then(r => console.log( 'fetchResp ',r))
+    )}
 
   render() {
-    // console.log(this.state.allChamps, "APP")
+    // console.log(this.state.user, "APP")
+    console.log(this.state)
+    // console.log(this.state.user.championlists.forEach(champ => console.log("erfe",champ.champion)))
     return (
       <div className="App">
 
@@ -158,7 +183,7 @@ class App extends Component {
           {/* More specific actions up, general paths down! */}
 
           <Route path='/Champions'>
-            <ChampionPage allChampions={this.state.allChampions} handleCardDelete={(e) => this.handleCardDelete(e)} handleCardBlurbChange={this.handleCardBlurbChange} token={this.state.token} />
+            <ChampionPage allChampions={this.state.allChampions} handleCardDelete={(e) => this.handleCardDelete(e)} handleCardBlurbChange={this.handleCardBlurbChange} token={this.state.token} creatingChampUserAssociation={this.creatingChampUserAssociation} />
           </Route>
 
           <Route path='/login'>
@@ -170,7 +195,7 @@ class App extends Component {
           </Route>
 
           <Route path='/profile' >
-            <ProfilePage user={this.state.user} token={this.state.token} />
+            <ProfilePage allChampions={this.state.allChampions} user={this.state.user} championlists={this.state.user.championlists} token={this.state.token} />
           </Route>v
 
           <Route exact strict path='/' >
