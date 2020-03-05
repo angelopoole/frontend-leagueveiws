@@ -15,7 +15,6 @@ import { withRouter } from 'react-router-dom'
 class App extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       allChampions: [],
       user: {
@@ -30,7 +29,6 @@ class App extends Component {
   // when the component mounts, if there is a token in local storage it will send a request to users#persist and send the data to handleresp 
   componentDidMount() {
     if (localStorage.getItem("token")) {
-
       fetch("http://localhost:4000/persist", {
         headers: {
           "Authorization": `Bearer ${localStorage.token}`
@@ -39,10 +37,8 @@ class App extends Component {
         .then(r => r.json())
         .then(this.handleResp)
     }
-
     this.fetchLeagueChampData()
   }
-
   // Takes in a token and sets a localstorage.token to the recived token. then sends us to profile page 
   handleResp = (resp) => {
     if (resp.user) {
@@ -55,7 +51,6 @@ class App extends Component {
       alert(resp.error)
     }
   }
-
   // Both of these submits take the response and return it to handle response ! 
   handleRegisterSubmit = (userInfo) => {
     return fetch(`http://localhost:4000/users`, {
@@ -81,10 +76,6 @@ class App extends Component {
   }
 
   handleCardDelete = (idFromChild) => {
-    // console.log("hello!")
-    // console.log(idFromChild)
-    // let hello = "hello" 
-
     fetch(`http://localhost:4000/champions`, {
       method: 'DELETE',
       headers: {
@@ -95,12 +86,7 @@ class App extends Component {
   }
 
   handleCardBlurbChange = (champion, blurbChange) => {
-    // e.preventDefault()
-    // console.log('hello')
-    // console.log(blurbChange)
-    // console.log(champion)
     let championId = champion.id
-
     fetch(`http://localhost:4000/champions/${championId}`, {
       method: 'PATCH',
       headers: {
@@ -123,8 +109,7 @@ class App extends Component {
   }
 
   creatingChampUserAssociation = (champion) => {
-    // console.log("user token: ", this.state.token, "champion Id:", champion )
-
+    console.log(this)
     fetch(`http://localhost:4000/championlists`, {
       method: 'POST',
       headers: {
@@ -133,45 +118,50 @@ class App extends Component {
       },
       body: JSON.stringify({ champion_id: champion })
     }).then(r => r.json())
-    .then(r => {
-      this.setState({
-        user:{
-          championlists: [...this.state.user.championlists, r]}
-      })
+      .then(r => {
+        this.setState({
+          user: {
+            ...this.state.user,
+            championlists: [...this.state.user.championlists, r]
+          }
+        })
+      }
+      )
+  }
 
-
-    }
-      // this.setState({
-      // user: {
-      //   championlists: [...[user: {championlists}], r]
-      // }})
-    // .then(r => console.log( 'fetchResp ',r))
-    )}
+  // handleLogOut = (e) => {
+  //   this.localstorage.clear();
+  // }
 
   render() {
-    // console.log(this.state.user, "APP")
-    console.log(this.state)
-    // console.log(this.state.user.championlists.forEach(champ => console.log("erfe",champ.champion)))
     return (
       <div className="App">
 
         <header className="App-header">
           <aside className="sidebar">
             <ul>
-              <li>
+              <li className="navLi">
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className="navLi" >
                 <Link to="/login">Login</Link>
               </li>
-              <li>
+              <li className="navLi" >
                 <Link to="/register">Register</Link>
               </li>
-              <li>
+              <li className="navLi" >
                 <Link to="/profile">Profile</Link>
               </li>
-              <li>
+              <li className="navLi" >
                 <Link to="/champions">Champions</Link>
+              </li>
+
+              <li className="navLi" onClick={() => {
+                localStorage.clear();
+                this.props.history.push("/login");
+                window.location.reload(false);
+              }} >
+                <div style={{ padding: '15px' }}>Log Out </div>
               </li>
 
             </ul>
@@ -205,7 +195,6 @@ class App extends Component {
           <Route component={NotFound} />
 
         </Switch>
-
 
       </div>
     )

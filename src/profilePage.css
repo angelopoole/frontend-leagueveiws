@@ -1,0 +1,14 @@
+.sideBar {
+    float: right;
+    width: 40rem;
+    height: 60rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    /* overflow-x: auto;  */
+}
+
+.championCard {
+    height: 100px;
+}
+
+

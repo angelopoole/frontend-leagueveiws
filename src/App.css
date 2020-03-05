@@ -15,14 +15,13 @@ body {
   padding: 20px;
 }
 .page {
-  background: REBECCAPURPLE;
+  background: #3d6cb9;
   display: flex;
   flex-direction: column;
   height: calc(100% - 40px);
   position: absolute;
   place-content: center;
   width: calc(100% - 40px);
-  z-index: -1;
 }
 @media (max-width: 767px) {
   .page {
@@ -142,4 +141,8 @@ input::-moz-focus-inner {
 .App-logo {
   animation: App-logo-spin alternate infinite 2s ease-in-out;
   height: 80px;
+}
+
+.navLi:hover {
+   background-color: violet;
 }
