@@ -4,8 +4,8 @@
 
 import React, { Component } from 'react'
 import ChampionCard from '../Components/championCard'
-import {withRouter} from 'react-router-dom'
-
+import { withRouter } from 'react-router-dom'
+import { Button, Card, Image } from 'semantic-ui-react'
 
 class championPage extends Component {
 
@@ -18,9 +18,7 @@ class championPage extends Component {
 
     renderChampionCards = () => {
         let champions = this.props.allChampions
-        // console.log(champions)
         return champions.map(champion => {
-            // console.log(champion)
             return <ChampionCard
                 champion={champion}
                 key={champion.id}
@@ -31,12 +29,13 @@ class championPage extends Component {
         })
     }
 
-
     render() {
         console.log(this.props)
         return (
-            <div>
-                {this.renderChampionCards()}
+            <div style={{overflow: 'scroll', height: '65rem', overflowX: 'hidden'}} >
+                <Card.Group >
+                    {this.renderChampionCards()}
+                </Card.Group>
             </div>
         )
     }

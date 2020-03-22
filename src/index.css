@@ -14,9 +14,14 @@ code {
 
 .sidebar {
   float: top;
-  background: #4DACAE;
+  background: #00d1ff;
   color: white;
  
+}
+
+.DocumentBody {
+  background-color: #fafaf6;
+  overflow: hidden;
 }
 
 .sidebar ul {

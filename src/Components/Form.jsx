@@ -39,6 +39,7 @@ export default class Form extends React.Component {
     }
 
     passwordFocusHandler = (e) => {
+        console.log("focused")
         if (this.current) this.current.pause();
         this.current = anime({
             targets: 'path',
