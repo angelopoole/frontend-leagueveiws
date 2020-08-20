@@ -42,17 +42,17 @@ export default class ChampionCard extends React.Component {
         // console.log(this.props.champion[0])
         // console.log(this.props)
         return (
-            <Card style={{background: '#dee1ec' }}>
-            <div className='ChampionCard' >
-            <Button basic color='red' onClick={(e) => this.props.handleCardDelete ? this.props.handleCardDelete(this.props.champion) : alert("Working on that functionality") } > Delete forever </Button>
-                <Button basic color='green' onClick={(e) => this.addToUser(id)}> Add to profile </Button>
-                <form onSubmit={(e) => this.handleSubmit(e)} >
-                    <Card.Header> {name}: {title}</Card.Header>
-                    <textarea name="blurb" onChange={(e) => this.handleChange(e)} value={this.state.blurb}  ></textarea>
-                    <input type='submit' style={{ background: 'black', float: "bottom", width: '200px' }} />
-                </form>
-            </div>
-                </Card>
+            <Card style={{ background: '#dee1ec' }}>
+                <div className='ChampionCard' >
+                    <Button basic color='red' onClick={(e) => this.props.handleCardDelete ? this.props.handleCardDelete(this.props.champion) : alert("Working on that functionality")} > Delete forever </Button>
+                    <Button basic color='green' onClick={(e) => this.addToUser(id)}> Add to profile </Button>
+                    <form onSubmit={(e) => this.handleSubmit(e)} >
+                        <Card.Header> {name}: {title}</Card.Header>
+                        <textarea name="blurb" onChange={(e) => this.handleChange(e)} value={this.state.blurb}  ></textarea>
+                        <input type='submit' style={{ background: 'black', float: "bottom", width: '200px' }} />
+                    </form>
+                </div>
+            </Card>
         )
     }
 

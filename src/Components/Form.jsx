@@ -83,13 +83,13 @@ export default class Form extends React.Component {
 
     }
 
-render() {
-    return (
-        <div>
-            <div className="container">
+    render() {
+        return (
+            <div>
+                <div className="container">
                     <div className="left">
                         <div className="login">{this.props.login ? "Login" : "Register"}</div>
-                        <div className="eula">By {this.props.login? "logging in": "registering"} you agree to the ridiculously long terms that you didn't bother to read</div>
+                        <div className="eula">By {this.props.login ? "logging in" : "registering"} you agree to the ridiculously long terms that you didn't bother to read</div>
                     </div>
                     <div className='right'>
                         <svg viewBox="0 0 320 300">
@@ -124,9 +124,9 @@ render() {
                     </div >
 
                 </div>
-        </div>
-    )
-}
+            </div>
+        )
+    }
 
 
 }

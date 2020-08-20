@@ -39,9 +39,9 @@ class ProfilePage extends Component {
                 "X-Riot-Token": `${process.env.REACT_APP_LEAGUE_API_KEY}`,
                 "Accept-Language": "en-US,en;q=0.9",
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"
-            } 
+            }
         }).then(r => r.json())
-        .then(console.log)
+            .then(console.log)
     }
 
 

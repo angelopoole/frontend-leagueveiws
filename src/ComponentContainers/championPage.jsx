@@ -32,7 +32,7 @@ class championPage extends Component {
     render() {
         console.log(this.props)
         return (
-            <div style={{overflow: 'scroll', height: '65rem', overflowX: 'hidden'}} >
+            <div style={{ overflow: 'scroll', height: '65rem', overflowX: 'hidden' }} >
                 <Card.Group >
                     {this.renderChampionCards()}
                 </Card.Group>

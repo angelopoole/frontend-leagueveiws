@@ -4,17 +4,17 @@ import Form from '../Components/Form.jsx'
 
 export default class LoginPage extends React.Component {
 
-handleLoginSubmit= userinfo => {
-    console.log("login form has been submited")
+    handleLoginSubmit = userinfo => {
+        console.log("login form has been submited")
 
-    // fetch("http://localhost:4000/users", {
-    //     method: 'GET',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     }, 
-    //     body: JSON.stringify(userinfo) 
-    // })
-}
+        // fetch("http://localhost:4000/users", {
+        //     method: 'GET',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     }, 
+        //     body: JSON.stringify(userinfo) 
+        // })
+    }
 
 
 
